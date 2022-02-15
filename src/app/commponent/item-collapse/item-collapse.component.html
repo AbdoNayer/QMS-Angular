@@ -1,0 +1,88 @@
+<div class="all-category">
+    <button id="btn-{{item?.id}}" class="toggle flex w-100">
+        <div class="">
+            <span class="flex align-item-center justify-content-center">
+                <i class="icon-plus color-main"></i>
+            </span>
+        </div>
+        <div class="flex align-item-center flex-wrap flex-1 bre-cramb">
+            <strong class="mr-2 ml-2" *ngFor="let cate of allCate; let i= index" (click)="onGitCategory(cate, i, item?.id)">
+                {{ cate?.name }}
+            </strong>
+        </div>
+    </button>
+    
+    <div>
+        <div class="view-section" id="view-{{item?.id}}">
+            <div class="sub-category" *ngFor="let serves of subCategory; let i= index">
+                <button class="flex align-item-center justify-content-space w-100 sub-collapse" (click)="onGitSubCategoryId(serves, item)">
+                    <strong class="color-main">{{ serves?.name }}</strong>
+                    <span><i class="icon-right-arrow color-main"></i></span>
+                </button>
+            </div>
+            <div class="block-item-sub">
+                <ul class="flex flex-wrap justify-content-center">
+                    <li *ngFor="let serves of services; let i= index" (click)="onGitSubCategoryId(serves, item)">
+                        <a [class]='item?.active === "true" ? "color-main ser-active" : "color-main"'>
+                            {{ serves?.name }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <p class="text-danger text-center" *ngIf='notFound'>{{ notFound }}</p>
+    </div>
+</div>
+
+<!-- Modal Terms -->
+
+<ng-template #terms let-modal>
+    <div class="modal-body chick-terms">
+        <div class="mb-5 mt-4 pr-3 pl-3">
+            <h4 class="">
+                <i class="icon-attach color-main"></i>
+                Required documents
+            </h4>
+            <p>Notice that this documents must be with you at this service appointment</p>
+        </div>
+        <div class="column-pararah">
+            <ul>
+                <li>Lorem ipsum don orean pas den opah</li>
+                <li>Lorem ipsum don orean pas den opah</li>
+                <li>Lorem ipsum don orean pas den opah</li>
+                <li>Lorem ipsum don orean pas den opah</li>
+                <li>Lorem ipsum don orean pas den opah</li>
+                <li>Lorem ipsum don orean pas den opah</li>
+                <li>Lorem ipsum don orean pas den opah</li>
+                <li>Lorem ipsum don orean pas den opah</li>
+                <li>Lorem ipsum don orean pas den opah</li>
+                <li>Lorem ipsum don orean pas den opah</li>
+                <li>Lorem ipsum don orean pas den opah</li>
+                <li>Lorem ipsum don orean pas den opah</li>
+                <li>Lorem ipsum don orean pas den opah</li>
+                <li>Lorem ipsum don orean pas den opah</li>
+                <li>Lorem ipsum don orean pas den opah</li>
+                <li>Lorem ipsum don orean pas den opah</li>
+                <li>Lorem ipsum don orean pas den opah</li>
+                <li>Lorem ipsum don orean pas den opah</li>
+                <li>Lorem ipsum don orean pas den opah</li>
+                <li>Lorem ipsum don orean pas den opah</li>
+                <li>Lorem ipsum don orean pas den opah</li>
+                <li>Lorem ipsum don orean pas den opah</li>
+                <li>Lorem ipsum don orean pas den opah</li>
+                <li>Lorem ipsum don orean pas den opah</li>
+                <li>Lorem ipsum don orean pas den opah</li>
+            </ul>
+        </div>
+        <div class="flex align-item-center justify-content-space mt-4 chick-terms pr-3 pl-3">
+            <label class="ChickRadio">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                <strong class="mr-1 ml-1">I confirm that I checked the attached documents.</strong>
+            </label>
+            <button type="button" class="bt-button btn-default mr-2 ml-2" (click)="modal.close()">
+                Proceed
+            </button>
+        </div>
+    </div>
+</ng-template>

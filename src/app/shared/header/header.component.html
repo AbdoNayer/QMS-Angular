@@ -1,0 +1,46 @@
+<header>
+    <div class="container flex align-item-center justify-content-space">
+        <div class="">
+            <div class="anime-text">
+                <h1 routerLink='/home' class="font-weight-bold m-0">QMS</h1>
+            </div>
+        </div>
+        <div class="">
+            <ul>
+                <li class="none-item">
+                    <a routerLink="/appointment" class="color-main">
+                        {{ 'Appointments' | translate }}
+                    </a>
+                </li>
+                <li ngbDropdown class="none-item" *ngIf="user.name">
+                    <a class="color-main" id="dropdownBasic1" ngbDropdownToggle>{{user.name}}</a>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                      <button routerLink="/profile" ngbDropdownItem>{{ 'profile' | translate }}</button>
+                      <button routerLink="/change" ngbDropdownItem>{{ 'changePass' | translate }}</button>
+                      <button (click)="logOut()" ngbDropdownItem>{{ 'sginOut' | translate }}</button>
+                    </div>
+                </li>
+                <li>
+                    <a class="color-main mr-2 ml-2" (click)="changeLang(setLang === 'ar' ? 'en' : 'ar')">
+                        <img [src]="setLang === 'en' ? 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/1280px-Flag_of_Egypt.svg.png' : 'https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/1200px-Flag_of_the_United_Kingdom.svg.png'" alt="">
+                        {{ setLang === 'ar' ? 'EN' : 'AR' }}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<div class="fix-tab">
+    <ul class="flex align-content-center">
+        <li class="flex-1">
+            <a routerLink="/" class="w-100 text-center"><i class="icon-exit"></i></a>
+        </li>
+        <li class="flex-1">
+            <a routerLink="/appointment" class="w-100 text-center"><i class="icon-app"></i></a>
+        </li>
+        <li class="flex-1 active">
+            <a routerLink="/profile" class="w-100 text-center"><i class="icon-user"></i></a>
+        </li>
+    </ul>
+</div>

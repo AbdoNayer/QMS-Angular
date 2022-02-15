@@ -1,0 +1,76 @@
+<div class="mt-5 mb-5 main-body">
+    <div class="container">
+        <div class="overflow-hidden mt-4 mb-4" *ngFor="let cart of listCart">
+            <div class="block-cart flex"  data-aos="fade-up"
+            data-aos-offset="200"
+            data-aos-delay="50"
+            data-aos-duration="1000">
+                <div class="data-cart text-center">
+                    <i class="icon-calendar"></i>
+                    <h4 class="color-main">{{ cart.date }}</h4>
+                    <h6 class="color-main">{{ cart.time }}</h6>
+                </div>
+                <div class="info-cart p-3">
+                    <div class="row">
+                        <div class="col-md-4 col-xs-12">
+                            <div class="dic-flex">  
+                                <div class="flex">
+                                    <div class="icon-shape">
+                                        <span class="flex align-item-center justify-content-center">
+                                            <i class='icon-bag'></i>
+                                        </span>
+                                    </div>
+                                    <div class="select-item p-0">
+                                        <h5 class="color-wight mb-0">{{ cart.nameSer }}</h5>
+                                        <ul class="">
+                                            <li *ngFor="let item of list">
+                                                <a href="">{{ item.name }}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-xs-12">
+                            <div class="dic-flex">
+                                <div class="flex">
+                                    <div class="icon-shape">
+                                        <span class="flex align-item-center justify-content-center">
+                                            <i class='icon-file'></i>
+                                        </span>
+                                    </div>
+                                    <div class="mt-2">
+                                        <h5 class="color-wight m-0 text-D">{{ cart.nameLoc }}</h5>
+                                        <p class="color-wight m-0 mt-2">{{ cart.location }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-xs-12">
+                            <div class="flex flex-column justify-content-space h-100">
+                                <div class="flex align-item-center flex-end">
+                                    <p class="color-wight">{{ 'code' | translate }}</p>
+                                    <h4 class="color-wight mr-2 ml-2">{{ cart.code }}</h4>
+                                </div>
+                                <ul class="flex flex-end list-control">
+                                    <li>
+                                        <a href="" class="flex align-item-center justify-content-center"><i class="icon-delete"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="flex align-item-center justify-content-center"><i class="icon-more"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="flex align-item-center justify-content-center"><i class="icon-edit"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="flex align-item-center justify-content-center"><i class="icon-tickets"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

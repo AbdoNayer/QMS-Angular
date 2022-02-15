@@ -1,0 +1,165 @@
+<div class="bg-form">
+    <div class="bg-color-overlay flex align-item-center justify-content-center h-100 pt-5 pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="info-text pr-4 pl-4" 
+                    data-aos="fade-right"
+                    data-aos-offset="200"
+                    data-aos-delay="50"
+                    data-aos-duration="1000">
+                        <i class="icon-time color-wight"></i>
+                        <h1 class="color-wight">{{ 'welcom' | translate }}</h1>
+                        <p class="color-wight">{{ 'teWelcom' | translate }}</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6">
+                    <form 
+                    data-aos="fade-left"
+                    data-aos-offset="200"
+                    data-aos-delay="50"
+                    data-aos-duration="1000" novalidate [formGroup]="authForm" (ngSubmit)="submitForm()">
+                        <div class="head-title">
+                            <h4>{{ 'sginUp' | translate }}</h4>
+                            <p>{{ 'enData' | translate }}</p>
+                        </div>
+                        <div class="mt-4 mb-2 form-input">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="position-relative mt-3">
+                                        <input
+                                            formControlName="name"
+                                            placeholder="{{ 'fullname' | translate }}"
+                                            type="text"
+                                            name='name'
+                                        />
+                                        <i class="icon-user color-gray"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="position-relative mt-3">
+                                        <input
+                                            formControlName="email"
+                                            placeholder="{{ 'email' | translate }}"
+                                            type="email"
+                                            name='email'
+                                        />
+                                        <i class="icon-email color-gray"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="position-relative mt-3">
+                                        <input
+                                            formControlName="country"
+                                            placeholder="{{ 'country' | translate }}"
+                                            type="text"
+                                            name='country'
+                                        />
+                                        <i class="icon-flag color-gray"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="position-relative mt-3">
+                                        <input
+                                            formControlName="ID"
+                                            placeholder="{{ 'ID' | translate }}"
+                                            type="tel"
+                                            name='ID'
+                                        />
+                                        <i class="icon-name color-gray"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="position-relative mt-3">
+                                        <input
+                                            formControlName="company"
+                                            placeholder="{{ 'company' | translate }}"
+                                            type="text"
+                                            name='company'
+                                        />
+                                        <i class="icon-briefcase color-gray"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="position-relative mt-3">
+                                        <input
+                                            formControlName="adress"
+                                            placeholder="{{ 'adress' | translate }}"
+                                            type="text"
+                                            name='adress'
+                                        />
+                                        <i class="icon-map color-gray"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="position-relative mt-3">
+                                        <input
+                                            formControlName="mobile"
+                                            placeholder="{{ 'mobile' | translate }}"
+                                            type="tel"
+                                            name='mobile'
+                                        />
+                                        <i class="icon-phone color-gray"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="position-relative mt-3">
+                                        <input
+                                            formControlName="phone"
+                                            placeholder="{{ 'phone' | translate }}"
+                                            type="tel"
+                                            name='phone'
+                                        />
+                                        <i class="icon-phone-call color-gray"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="position-relative mt-3">
+                                        <i class="icon-lock color-gray"></i>
+                                        <input
+                                            formControlName="password"
+                                            placeholder="{{ 'password' | translate }}"
+                                            [type]="show ? 'text' : 'password'"
+                                            name='password'
+                                        />
+                                        <i (click)="showPassword()" class="icon-eye color-gray"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="position-relative mt-3">
+                                        <i class="icon-lock color-gray"></i>
+                                        <input
+                                            formControlName="comPassword"
+                                            placeholder="{{ 'Cpass' | translate }}"
+                                            [type]="show ? 'text' : 'password'"
+                                            name='conPassword'
+                                        />
+                                        <i (click)="showPassword()" class="icon-eye color-gray"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p *ngIf='error' class="text-danger text-center mt-4 m-0">{{error}}</p>
+
+                        <div class="text-center mt-4">
+                            <button class="btn-default bt-button" type="button" type="submit">                  
+                                <span *ngIf="!loading"> 
+                                    {{ 'sginI' | translate }} 
+                                    <i class="icon-down-arrow color-wight"></i> 
+                                </span>
+                                <div *ngIf="loading" class="spinner-border text-light" role="status"></div>
+                            </button>
+                            <h6 class="color-gray mt-3">
+                                {{ 'haveAcc' | translate }}
+                                <a routerLink="/" class="color-main">
+                                    {{ 'sginIn' | translate }}
+                                </a>
+                            </h6>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

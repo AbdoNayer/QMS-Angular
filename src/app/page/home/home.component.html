@@ -1,0 +1,40 @@
+<div class="head-step mt-5 mb-5 main-body overflow-hidden">
+
+    <div class="container">
+        <div data-aos="fade-up"
+        data-aos-offset="200"
+        data-aos-delay="50"
+        data-aos-duration="1000">
+            <div class="row">
+                <div class="col-md-3 col-xs-12 p-0">
+                    <app-site-step [services]="allServices"></app-site-step>
+                </div>
+                <div class="col-md-9 col-xs-12 p-0">
+                    <div class="block-scoop">
+                        <h4 class="pr-3 pl-3 mb-4 mt-0">
+                            {{ 'selectserv' | translate }}
+                        </h4>
+                        <div class="view-collapse">
+                            <h6 class="text-center text-danger font-weight-bold">{{ valError }}</h6>
+                            <div class="dis-table p-2">
+                                <app-item-collapse 
+                                    class="table-cell-item pr-2 pl-2 mb-3" 
+                                    *ngFor="let item of list; let i= index" [item]="item"
+                                    id="cate-{{item?.id}}"
+                                    (newItemEvent)="addItem($event, i)"
+                                >
+                                </app-item-collapse>
+                            </div>
+                        </div>
+                        <button (click)="valServices()" class="bt-button btn-default mr-3 ml-3 mt-4">
+                            {{ 'next' | translate }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

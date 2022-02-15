@@ -1,0 +1,81 @@
+<div class="bg-form">
+    <div class="bg-color-overlay flex align-item-center justify-content-center h-100 pt-5 pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="info-text pr-4 pl-4" 
+                    data-aos="fade-right"
+                    data-aos-offset="200"
+                    data-aos-delay="50"
+                    data-aos-duration="1000">
+                        <i class="icon-time color-wight"></i>
+                        <h1 class="color-wight">{{ 'welcom' | translate }}</h1>
+                        <p class="color-wight">{{ 'teWelcom' | translate }}</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6">
+                    <form 
+                    data-aos="fade-left"
+                    data-aos-offset="200"
+                    data-aos-delay="50"
+                    data-aos-duration="1000" novalidate [formGroup]="authForm" (ngSubmit)="submitForm()">
+                        <div class="head-title">
+                            <h4>{{ 'sginIn' | translate }}</h4>
+                            <p>{{ 'enterRe' | translate }}</p>
+                        </div>
+                        <div class="mt-4 mb-2 form-input">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="position-relative mt-3">
+                                        <input
+                                            formControlName="email"
+                                            placeholder="{{ 'email' | translate }}"
+                                            type="email"
+                                            name='email'
+                                            pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
+                                        />
+                                        <i class="icon-email color-gray"></i>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="position-relative mt-3">
+                                        <i class="icon-lock color-gray"></i>
+                                        <input
+                                            formControlName="password"
+                                            placeholder="{{ 'password' | translate }}"
+                                            [type]="show ? 'text' : 'password'"
+                                            name='password'
+                                        />
+                                        <i (click)="showPassword()" class="icon-eye color-gray"></i>
+                                    </div>
+                                    <a routerLink='/forgetPassword' class="text-D color-main flex-end flex mt-1 mb-1">
+                                        {{ 'forgetPass' | translate }}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p *ngIf='error' class="text-danger text-center m-0">{{error}}</p>
+
+                        <div class="text-center mt-4">
+                            <button class="btn-default bt-button" type="button" type="submit">                  
+                                <span *ngIf="!loading"> 
+                                    {{ 'sginIn' | translate }}
+                                    <i class="icon-down-arrow color-wight"></i> 
+                                </span>
+                                <div *ngIf="loading" class="spinner-border text-light" role="status"></div>
+                            </button>
+                            <h6 class="color-gray mt-3">
+                                {{ 'dHaveAcc' | translate }}
+                                <a routerLink="/signup" class="color-main">
+                                    {{ 'sginI' | translate }}
+                                </a>
+                            </h6>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+header{
+    padding: 10px 0;
+    text-align: center;
+    ul{
+        li{
+            margin: 0 10px;
+            font-size: 17px;
+            a{
+                img{
+                    max-width: 20px;
+                    object-fit: cover;
+                    height: 13px;
+                }
+            }
+        }
+    }
+}
+
+

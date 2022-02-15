@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="22" viewBox="0 0 13 22">
+  <g id="phone" transform="translate(-96)">
+    <g id="Group_21" data-name="Group 21" transform="translate(96)">
+      <path id="Path_36" data-name="Path 36" d="M106.5,0h-8A2.5,2.5,0,0,0,96,2.5v17A2.5,2.5,0,0,0,98.5,22h8a2.5,2.5,0,0,0,2.5-2.5V2.5A2.5,2.5,0,0,0,106.5,0Zm-4,21a1.5,1.5,0,1,1,1.5-1.5,1.5,1.5,0,0,1-1.5,1.5Zm4.5-4H98V3h9Z" transform="translate(-96)"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,82 @@
+<div class="bg-site-step">
+    <ul class="flex flex-column">
+        <li class="active" *ngFor="let it of stepArr">
+            <a class="flex">
+                <div class="icon-shape">
+                    <span class="flex align-item-center justify-content-center">
+                        <i [ngClass]='it.icon'></i>
+                    </span>
+                </div>
+                <div class="select-item">
+                    <strong>{{ it.name }}</strong>
+                    <div *ngIf='it.id == 1' class="elment-1 mt-2 mb-2">
+                        <ul class="mt-2 mb-2">
+                            <li *ngFor="let item of services">
+                                <a href="">{{ item.name }}</a>
+                                <button class="flex align-item-center justify-content-center" (click)="openModal(delet, item)">
+                                    <i class="icon-close"></i>
+                                </button>
+                            </li>
+                            <li class="add-more" *ngIf="services.length != 0">
+                                <a class="flex align-item-center justify-content-center" (click)="openModal(edit, null)">
+                                    <i class="icon-plus"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div *ngIf='it.id == 2' class="elment-2 mt-2 mb-2">
+                        <h4 class="color-wight m-0 text-D">{{ location.name }}</h4>
+                        <p class="color-wight m-0 mt-2">{{ location.map }}</p>
+                    </div>
+                    <div *ngIf='it.id == 3' class="elment-3 mt-2 mb-2">
+                        <p class="color-wight" *ngIf='cal.date'>Date: {{ cal.date }}</p>
+                        <p class="color-wight" *ngIf='cal.time'>Time: {{ cal.time }}</p>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!-- Modal Remove Item -->
+
+<ng-template #delet let-modal>
+    <div class="modal-body">
+        <div class="">
+            <h4 class="mb-5 mt-4 text-center">
+                {{ lang ? 'هل تريد حذف الخدمة من موعدك؟' : 'Do you want to delete the the service from your appointment ?'}}
+            </h4>
+        </div>
+        <div class="flex align-item-center justify-content-center">
+            <button type="button" class="bt-button btn-default-border mr-2 ml-2" (click)="modal.close()">
+                {{ lang ? 'إلغاء' : 'Cancel'}}
+            </button>
+            <button type="button" class="bt-button bt-remove mr-2 ml-2" (click)="removeItem(item)" (click)="modal.close()">
+                {{ lang ? 'نعم ، احذف' : 'Yes, delete'}}
+            </button>
+        </div>
+    </div>
+</ng-template>  
+
+<!-- Modal Edit Item -->
+
+<ng-template #edit let-modal>
+    <div class="modal-body">
+        <div class="mb-5 mt-4">
+            <h4 class="text-center">
+                {{ lang ? 'هل تريد تعديل نتائج الفروع المتاحة؟' : 'Do you want to edit the results for available branches ?'}}
+            </h4>
+            <p class="text-center">
+                {{ lang ? 'لاحظ أن حذف الخدمة قد يغير الفروع المتاحة لموعدك المحجوز!' : 'Notice that deleting a service may change the available branches for your booked appointment !'}}
+            </p>
+        </div>
+        <div class="flex align-item-center justify-content-center">
+            <button type="button" class="bt-button btn-default-border mr-2 ml-2" (click)="modal.close()">
+                {{ lang ? 'تخطي' : 'Skip and proceed'}}
+            </button>
+            <button type="button" class="bt-button btn-default mr-2 ml-2" (click)="modal.close()" routerLink='/home'>
+                {{ lang ? 'تعديل النتائج' : 'edit results'}}
+            </button>
+        </div>
+    </div>
+</ng-template>

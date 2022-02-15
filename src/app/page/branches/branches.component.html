@@ -1,0 +1,111 @@
+<div class="head-step mt-5 mb-5 main-body overflow-hidden">
+
+    <div class="container">
+        <div data-aos="fade-up"
+        data-aos-offset="200"
+        data-aos-delay="50"
+        data-aos-duration="1000">
+            <div class="row">
+                <div class="col-md-3 col-xs-12 p-0">
+                    <app-site-step></app-site-step>
+                </div>
+                <div class="col-md-9 col-xs-12 p-0">
+                    <div class="block-scoop">
+                        <!-- Bar Near by -->
+                        <div [class]="show ? 'bar-near-by flex align-item-center justify-content-space fad-bar' : 'bar-near-by flex align-item-center justify-content-space'">
+                            <div class="flex align-item-center">
+                                <i class="icon-map color-wight"></i>
+                                <div class="pr-4 pl-4">
+                                    <h6 class="color-wight">{{ 'nearby' | translate }}</h6>
+                                    <p class="color-wight">{{ 'feel' | translate }}</p>
+                                </div>
+                            </div>
+                            <button class="bt-button btn-wight-border" (click)="onFade()">
+                                {{ 'skip' | translate }}
+                            </button>
+                        </div>
+                        <!-- Filter Near by -->
+                        <div [class]="showFilter ? 'filter' : 'filter fad-bar'">
+                            <div class="flex-end flex">
+                                <button class="bt-button w-auto" (click)="onFilter()">
+                                    <i class="icon-close"></i>
+                                </button>
+                            </div>
+                            <div class="flex align-item-center justify-content-space">
+                                <h3 class="color-main m-0">{{ 'results' | translate }}</h3>
+                                <div class="flex align-item-center">
+                                    <div class="flex align-item-center">
+                                        <label class="m-0 mr-2 ml-2">{{ 'governorate' | translate }}</label>
+                                        <input type="text" placeholder="">
+                                    </div>
+                                    <div class="flex align-item-center">
+                                        <label class="m-0 mr-2 ml-2">{{ 'city' | translate }}</label>
+                                        <input type="text" placeholder="">
+                                    </div>
+                                    <div class="flex align-item-center mr-3 ml-3 item-select">
+                                        <i class="icon-double color-main mr-2 ml-2"></i>
+                                        <select name="" id="" class="color-main">
+                                            <option value="">near by</option>
+                                            <option value="">das</option>
+                                            <option value="">das</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex align-item-center justify-content-space pr-4 pl-4">
+                            <div>
+                                <h4 class="m-0">{{ 'availableBranche' | translate }}</h4>
+                                <p class="m-0 color-gray">
+                                    {{ 'selectBranche' | translate }}
+                                </p>
+                            </div>
+                            <div class="">
+                                <button class="bt-button btn-default-border" style="width: auto;" (click)="onFilter()">
+                                    <i class="icon-filter color-main"></i>
+                                    {{ 'filter' | translate }}
+                                </button>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap pr-2 pl-2 mt-4">
+                            <div class="col-md-6 col-xs-12">
+                              <iframe 
+                              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.876753023979!2d31.37992828480936!3d30.097715881862836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458163fd025daa3%3A0xbf5383df5107a7ab!2zMjkg2LnYqNivINin2YTZiNmH2KfYqCDYp9mE2KjYtNix2YrYjCDYtNmK2LHYp9iq2YjZhiDYp9mE2YXYt9in2LHYjCDZgtiz2YUg2KfZhNmG2LLZh9ip2Iwg2YXYrdin2YHYuNipINin2YTZgtin2YfYsdip4oCsIDExMzYx!5e0!3m2!1sar!2seg!4v1627203744652!5m2!1sar!2seg" 
+                              class="map" 
+                              allowfullscreen="" 
+                              loading="lazy">
+                            </iframe>
+                            </div>
+                            <div class="col-md-6 col-xs-12">
+                                <div class="height-view">
+                                    <div class="flex align-item-center view-scop" *ngFor="let location of ourLocation">
+                                        <label class="ChickRadio">
+                                            <input type="radio" name="radio">
+                                            <span class="checkmark"></span>
+                                            <strong class="mr-1 ml-1">{{ location.branch }}</strong>
+                                        </label>
+                                        <div class="flex align-item-center mr-1 ml-1">
+                                            <i class="icon-compass color-gray"></i>
+                                            <p class="m-0 mr-1 ml-1">{{ location.location }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-content-center mt-4">
+                            <a routerLink='/home' class="bt-button btn-default-border mr-3 ml-3">
+                                {{ 'previous' | translate }}
+                            </a>
+                            <a routerLink='/chooseDate' class="bt-button btn-default mr-3 ml-3">
+                                {{ 'next' | translate }}
+                            </a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,160 @@
+<div class="mb-5 main-body flex align-item-center justify-content-center overflow-hidden">
+
+    <div class="container h-100">
+        
+        <form class="box-info" data-aos="fade-up"
+        data-aos-offset="200"
+        data-aos-delay="50"
+        data-aos-duration="1000" novalidate [formGroup]="authForm" (ngSubmit)="onSave()">
+
+            <h4 class="text-center mb-5">{{ 'personalInfo' | translate }}</h4>
+
+            <div class="info-user">
+
+                <div class="row">
+
+                    <div class="col-md-6 col-xs-12">
+                        <div class="position-relative mt-3 input-box">
+                            <i class="icon-user color-gray"></i>
+                            <input
+                                formControlName="name"
+                                id="name"
+                                class="input"
+                                [ngModel]="user.name"
+                                value={{user.name}}
+                                [attr.disabled]="true"
+                            />
+                            <a (click)="onToggleEdit('name')">
+                                <i class="icon-edite color-gray"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="position-relative mt-3 input-box">
+                            <i class="icon-email color-gray"></i>
+                            <input
+                                formControlName="email"
+                                [ngModel]="user.email"
+                                id="email"
+                                class="input"
+                                [attr.disabled]="true"
+                            />
+                            <a (click)="onToggleEdit('email')">
+                                <i class="icon-edite color-gray"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="position-relative mt-3 input-box">
+                            <i class="icon-flag color-gray"></i>
+                            <input
+                                formControlName="country"
+                                [ngModel]="user.country"
+                                id="country"
+                                class="input"
+                                [attr.disabled]="true"
+                            />
+                            <a (click)="onToggleEdit('country')">
+                                <i class="icon-edite color-gray"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="position-relative mt-3 input-box">
+                            <i class="icon-name color-gray"></i>
+                            <input
+                                formControlName="ID"
+                                [ngModel]="user.ID"
+                                id="ID"
+                                class="input"
+                                [attr.disabled]="true"
+                            />
+                            <a (click)="onToggleEdit('ID')">
+                                <i class="icon-edite color-gray"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="position-relative mt-3 input-box">
+                            <i class="icon-briefcase color-gray"></i>
+                            <input
+                                formControlName="company"
+                                [ngModel]="user.companyName"
+                                id="company"
+                                class="input"
+                                [attr.disabled]="true"
+                            />
+                            <a (click)="onToggleEdit('company')">
+                                <i class="icon-edite color-gray"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="position-relative mt-3 input-box">
+                            <i class="icon-map color-gray"></i>
+                            <input
+                                formControlName="adress"
+                                [ngModel]="user.adress"
+                                id="adress"
+                                class="input"
+                                [attr.disabled]="true"
+                            />
+                            <a (click)="onToggleEdit('adress')">
+                                <i class="icon-edite color-gray"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="position-relative mt-3 input-box">
+                            <i class="icon-phone color-gray"></i>
+                            <input
+                                formControlName="phone"
+                                [ngModel]="user.phone"
+                                id="phone"
+                                class="input"
+                                [attr.disabled]="true"
+                            />
+                            <a (click)="onToggleEdit('phone')">
+                                <i class="icon-edite color-gray"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="position-relative mt-3 input-box">
+                            <i class="icon-phone-call color-gray"></i>
+                            <input
+                                formControlName="mobile"
+                                [ngModel]="user.mobile"
+                                id="mobile"
+                                class="input"
+                                [attr.disabled]="true"
+                            />
+                            <a (click)="onToggleEdit('mobile')">
+                                <i class="icon-edite color-gray"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <p *ngIf='error' class="text-danger text-center mt-4 m-0">{{error}}</p>
+
+            <div class="flex justify-content-center mt-5">
+                <!-- <a class="bt-button btn-default-border mr-3 ml-3 mt-2" (click)="onDiscard()">
+                    {{ 'discard' | translate }}
+                </a> -->
+                <button class="bt-button btn-default mr-3 ml-3 mt-2">
+                    <span *ngIf="!loading"> 
+                        {{ 'save' | translate }}
+                    </span>
+                    <div *ngIf="loading" class="spinner-border text-light" role="status"></div>
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+
+</div>

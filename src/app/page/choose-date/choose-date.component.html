@@ -1,0 +1,74 @@
+<div class="head-step mt-5 mb-5 main-body overflow-hidden">
+    <div class="container">
+        <div data-aos="fade-up"
+        data-aos-offset="200"
+        data-aos-delay="50"
+        data-aos-duration="1000">
+        <div class="row">
+            <div class="col-md-3 col-xs-12 p-0">
+                <app-site-step></app-site-step>
+            </div>
+            <div class="col-md-9 col-xs-12 p-0">
+                <div class="block-scoop time-sheet pr-5 pl-5">
+                    <div class="mb-4 mt-3">
+                        <h4 class="m-0">
+                            {{ 'chodate' | translate }}
+                        </h4>
+                        <p class="m-0 color-gray">
+                            {{ 'chdate' | translate }}
+                        </p>
+                    </div>
+                    <div class="row p-0">
+                        <div class="col-md-6 col-xs-12 p-0">
+                            <!-- in the popup -->
+                            <input type="text" ngbDatepicker id="date" #date ng-model="date" placeholder="{{ 'date' | translate }}"/>
+                            <ngb-datepicker (dateSelect)="onDateSelect($event)"></ngb-datepicker>
+                        </div>
+                        <div class="col-md-6 col-xs-12 p-0">
+                            <input type="text" placeholder="{{ 'time' | translate }}" id="time" #time ng-model="time"/>
+                            <div class="times pr-2 pl-2">
+                                <div class="flex align-item-center flex-wrap justify-content-center">
+                                    <label class="ChickRadio" *ngFor="let time of times" (click)="onTimeSelect(time.text)">
+                                        <input type="radio" name="radio">
+                                        <span class="checkmark"></span>
+                                        <strong class="mr-1 ml-1">{{ time.text }}</strong>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-content-center mt-2">
+                        <a routerLink='/branch' class="bt-button btn-default-border mr-3 ml-3">
+                            {{ 'previous' | translate }}
+                        </a>
+                        <a routerLink='/home' class="bt-button btn-default mr-3 ml-3" (click)="modal(done)">
+                            {{ 'confirm' | translate }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Done -->
+
+<ng-template #done let-modal>
+    <div class="modal-body">
+        <div class="mb-5 mt-4 text-center">
+            <h4>
+                {{ 'successfully' | translate }}
+            </h4>
+            <p>
+                {{ 'welcome' | translate }}
+            </p>
+        </div>
+        <div class="flex align-item-center justify-content-center">
+            <button type="button" class="bt-button btn-default-border mr-2 ml-2" (click)="modal.close()">
+                {{ 'proceed' | translate }}
+            </button>
+        </div>
+    </div>
+</ng-template> 
+    
